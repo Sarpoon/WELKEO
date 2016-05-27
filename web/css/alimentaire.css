@@ -1,0 +1,27 @@
+.articles {
+	background-color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+.articlepage{
+	padding: 12px;
+	background-color: #f2f2f2;
+}
+
+.panier {
+}
+
+.paniertableaufinal {
+	background-color: #ffffff;
+}
+
+
+.paniertableau {
+	background-color: #ffffff;
+}
+
+.articledetail {
+	border-bottom: 2px solid rgb(72, 77, 145);
+	margin: 0 5px 0 5px;
+}

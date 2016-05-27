@@ -1,0 +1,7 @@
+Main_home:
+    pattern:     /
+    defaults: { _controller: MainBundle:Public:index }
+
+Main_alimentaire:
+    pattern:     /alimentaire
+    defaults: { _controller: MainBundle:Public:alimentaireIndex }

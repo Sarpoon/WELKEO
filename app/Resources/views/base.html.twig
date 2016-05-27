@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}Welinkeo !{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block stylesheets %}
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="{{ asset('css/base.css') }}" rel="stylesheet">       
+  <link href="{{ asset('css/alimentaire.css') }}" rel="stylesheet">
+  {% endblock %}
+ 
+</head>
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-4" style="margin: 0; margin-top: 10px; padding: 0;">
+          <img src="{{ asset('img/logoalphacroped.png')}}" class="img-responsive" style="width: 90%;" alt="Logo">
+        </div>
+        <div class="col-sm-3" style="margin: 0; padding: 0;">
+            <img src="{{ asset('img/congocroped.png')}}" class="img-responsive" style="" alt="Congo">
+        </div>
+        <div class="col-sm-3" style="margin: 0; margin-top: 10px;">
+          <ul style="list-style-type:none"><br>
+            <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Qui sommes nous ?</a></li><br>
+            <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Nos agences en Europe</a></li><br>
+            <li><a href="#"><span class="glyphicon glyphicon-flag"></span> Nos dépôts à Kinshasa</a></li><br>
+            <li><a href="#"><span class="glyphicon glyphicon-earphone"></span> Contactez nous</a></li><br>
+          </ul>
+        </div>
+        <div class="col-sm-2" style="padding-top: 0; padding-bottom: 0; padding-left: 0;">
+          <div class="panel panel-default" style="padding: 0; background-color: #484d91; color: #ffffff;">
+            <div class="panel-body" style="padding: 2px 10px 2px 10px;">
+              <p style="text-align: center; font-size: 1em; margin: 0; padding: 0;">Connexion</p>
+              <form role="form">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" placeholder="Identifiant">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="pwd" placeholder="Mot de passe">
+                </div>
+                <button type="submit" class="btn btn-default" style="width: 100%;">Entrer</button>
+              </form>
+              <small><a href="#" style="color: #cccccc;">Mot de passe oublié ?</a></small>
+            </div>
+          </div>
+          <button class="btn btn-danger" style="width: 100%; margin-bottom: 20px;">Créer un compte</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Barre de navigation-->
+
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="padding: 0;" href="#"><img src="{{ asset('img/logosimplewhite.png')}}" class="img-responsive" style="width: 60%; margin: 8% 0 0 8%; " alt="Image"><br>
+</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ path("Main_home") }}">Accueil</a></li>
+        <li><a href="{{ path("Main_alimentaire") }}">Alimentaire</a></li>
+        <li><a href="#">High-tech</a></li>
+        <li><a href="#">Matériaux de construction</a></li>
+        <li><a href="#">Médicaments</a></li>
+        <li><a href="#">Vente en agence</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- body -->
+
+
+{% block body %}{% endblock %}
+
+
+<!-- footer -->
+
+<footer class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-4">
+      <ul>
+        <li><a href="#">Qui sommes nous</a></li>
+        <li><a href="#">Nos agences en Europe</a></li>
+        <li><a href="#">Nos dépôts à Kinshasa</a></li>
+        <li><a href="#">Contactez nous</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <h1><a href="#">Mentions légales</a></h1>
+    </div>
+    <div class="col-sm-4"> 
+      <h1><a href="#">Garanties et sécurité</a></h1>        
+    </div>
+  </div>
+</footer>
+
+<!-- javascript -->
+
+{% block javascripts %}
+  <!-- #### JAVASCRIPT FILES ### -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+  </script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+  margin : 0;
+  border-radius: 0;
+  border: 0;
+  background-color: #484d91;
+}
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #454545;
+  background-color: #f2f2f2;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #989ccd;
+}
+
+
+.navbar > .active > a:focus{
+  background-color: #ffffff;
+}
+
+
+body{
+  padding : 0 10% 0 10%;
+  background-image: url("../img/background.jpg");
+  background-repeat: repeat-x;
+}
+
+/* Remove the jumbotron's default bottom margin */ 
+.jumbotron {
+  margin: 30px 0 0 0;
+  padding: 0;
+  background : transparent;
+}
+
+/* Modal de connexion */
+
+#modalConnexion {
+  background: transparent;
+
+  position: fixed;
+  width: 50%;
+  margin: 0 0 0 0;
+}
+
+/* full width for banner*/
+.container {
+  padding : 0;
+  width : 100%;
+}
+
+.banner {
+  border : 0;
+  padding : 0;
+  width : 100%;
+}
+
+/* Bottom banners*/
+
+.bottombanner{
+  margin-top:  20px;
+}
+
+
+/* Categories */
+.categories {
+  margin: 0 0 0 0;
+  border-radius: 3px;
+  background: #ffffff;
+  padding: 0 5px 0 5px;
+}
+
+.categories h1 {
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+  padding-bottom: 0;
+}

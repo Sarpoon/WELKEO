@@ -46,40 +46,15 @@ class PublicController extends Controller
 
     public function alimentaireIndexAction()
     {
-    	return $this->render('MainBundle:Public:alimentaire.html.twig',array(
-    		'articles' => array(
-	    			array(
-			    		'titre' => "Article 1",
-			    		'auteur' => array(
-			    			'username' => "Sarpoon",
-			    			'id'=> 1,
-			    			'nbProduits' => 12,
-			    			),
-			    		'contenu' => "contenu de l'article",
-			    		'date' => new \DateTime(),
-						),
-					array(
-			    		'titre' => "Article 1",
-			    		'auteur' => array(
-			    			'username' => "Sarpoon",
-			    			'id'=> 1,
-			    			'nbProduits' => 12,
-			    			),
-			    		'contenu' => "contenu de l'article",
-			    		'date' => new \DateTime(),
-						),
-					array(
-			    		'titre' => "Article 1",
-			    		'auteur' => array(
-			    			'username' => "Sarpoon",
-			    			'id'=> 1,
-			    			'nbProduits' => 12,
-			    			),
-			    		'contenu' => "contenu de l'article",
-			    		'date' => new \DateTime(),
-						),	
-				),
-    		));
+    	/*	Fonction Recherche + fonction tri catégories
+    		
+    		Database query depends on search option 
+
+    		Return with all infos 
+    	*/
+
+
+    	return $this->render('MainBundle:Public:alimentaire.html.twig');
     }
 }
 ?>

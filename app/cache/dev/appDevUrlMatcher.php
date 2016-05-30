@@ -105,6 +105,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // admin_homepage
+        if (rtrim($pathinfo, '/') === '/administration') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'admin_homepage');
+            }
+
+            return array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin_homepage',);
+        }
+
         // Main_home
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

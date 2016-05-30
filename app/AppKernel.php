@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             
             new Welinkeo\UserBundle\WelinkeoUserBundle(),
             new Welinkeo\MainBundle\MainBundle(),
+            new Welinkeo\AdminBundle\AdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

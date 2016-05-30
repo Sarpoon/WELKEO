@@ -1,0 +1,45 @@
+{% extends "::AdminLayout.html.twig" %}
+
+{% block title %}{{ parent()}} | Produits{% endblock %}
+
+{% block stylesheets %}
+{{ parent()}}
+<link href="{{ asset('css/Admin/products.css') }}" rel="stylesheet">
+
+{% endblock%}
+
+{% block body%} 
+
+
+<div class="container-fluid body">
+  <div class="row content">
+    
+    <div class="col-sm-3 sidenav">
+     
+      <div class="panel panel-default panel-primary">
+        <div class="panel-heading">
+          <h4>Ajouter un Article</h4>
+        </div>
+        <div class="panel-body">
+          
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-9">
+     
+      <div class="panel panel-default panel-primary">
+        <div class="panel-heading">
+          <h4>Consulter les articles</h4>
+        </div>
+        <div class="panel-body">
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+{% endblock %}

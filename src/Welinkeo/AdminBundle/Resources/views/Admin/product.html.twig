@@ -9,7 +9,7 @@
 {% endblock%}
 
 {% block body%} 
-
+<br><br><br><br>
 
 <div class="container-fluid body">
   <div class="row content">
@@ -21,7 +21,15 @@
           <h4>Ajouter un Article</h4>
         </div>
         <div class="panel-body">
-          
+
+          {% for k, v in app.session.flashbag.all() %}
+            <span class="{{ k }}">{{ v }}</span>
+          {% endfor %}
+
+          <form method='POST'>
+            <input type='text' name='titre'/>
+            <input type='submit'/>
+          </form>
         </div>
       </div>
 

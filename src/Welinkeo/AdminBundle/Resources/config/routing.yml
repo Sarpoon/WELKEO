@@ -2,6 +2,20 @@ admin_homepage:
     path:     /
     defaults: { _controller: AdminBundle:Admin:index }
 
+
+############# Articles #################
 Admin_product:
     path:     /produits
     defaults: { _controller: AdminBundle:Product:index }
+
+Admin_product_store:
+    path:     /produits/ajouter
+    defaults: { _controller: AdminBundle:Product:ajouter }
+
+Admin_product_edit:
+    path:     /produits/{id}/modifier
+    defaults: { _controller: AdminBundle:Product:edit }
+
+Admin_product_delete:
+    path:     /produits/{id}/supprimer
+    defaults: { _controller: AdminBundle:Product:delete }

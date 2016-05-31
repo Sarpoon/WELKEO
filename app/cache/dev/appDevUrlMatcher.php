@@ -115,9 +115,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin_homepage',);
             }
 
-            // Admin_product
-            if ($pathinfo === '/administration/produits') {
-                return array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\ProductController::indexAction',  '_route' => 'Admin_product',);
+            if (0 === strpos($pathinfo, '/administration/produits')) {
+                // Admin_product
+                if ($pathinfo === '/administration/produits') {
+                    return array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\ProductController::indexAction',  '_route' => 'Admin_product',);
+                }
+
+                // Admin_product_store
+                if ($pathinfo === '/administration/produits/ajouter') {
+                    return array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\ProductController::ajouterAction',  '_route' => 'Admin_product_store',);
+                }
+
+                // Admin_product_edit
+                if (preg_match('#^/administration/produits/(?P<id>[^/]++)/modifier$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'Admin_product_edit')), array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\ProductController::editAction',));
+                }
+
+                // Admin_product_delete
+                if (preg_match('#^/administration/produits/(?P<id>[^/]++)/supprimer$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'Admin_product_delete')), array (  '_controller' => 'Welinkeo\\AdminBundle\\Controller\\ProductController::deleteAction',));
+                }
+
             }
 
         }

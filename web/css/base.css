@@ -32,7 +32,17 @@ body{
   padding : 0 10% 0 10%;
   background-image: url("../img/background.jpg");
   background-repeat: repeat-x;
+  background-repeat: repeat-y;
 }
+
+#bodyCentered {
+  padding: 30px;
+  padding-top: 1px;
+  margin: 0;
+  background-color: #ffffff;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
 
 /* Remove the jumbotron's default bottom margin */ 
 .jumbotron {

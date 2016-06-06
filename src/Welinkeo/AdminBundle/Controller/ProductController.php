@@ -24,7 +24,10 @@ class ProductController extends Controller
 {
     public function indexAction(Request $request)
     {   
-        // create a product and give it some dummy data for this example
+
+        //***************************   Mise en place du formulaire d'ajout d'un produit !!   **************************
+
+
         $product = new Product();
 
         $form = $this->createFormBuilder($product)
@@ -108,6 +111,68 @@ class ProductController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            if($product->getphoto1()){
+
+                // $file stores the uploaded photo file
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                $photo1 = $product->getPhoto1();
+
+                // Generate a unique name for the file before saving it
+                $photo1Name = md5(uniqid()).'.'.$photo1->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                $photo1->move(
+                    $this->container->getParameter('product_photo_directory'),
+                    $photo1Name
+                );
+
+                // Update the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $product->setPhoto1($photo1Name);
+            }
+
+            if($product->getphoto2()){
+                $photo2 = $product->getPhoto2();
+                $photo2Name = md5(uniqid()).'.'.$photo2->guessExtension();
+                $photo2->move(
+                    $this->container->getParameter('product_photo_directory'),
+                    $photo2Name
+                );
+                $product->setPhoto2($photo1Name);
+            }
+
+            if($product->getphoto3()){
+                $photo3 = $product->getPhoto3();
+                $photo3Name = md5(uniqid()).'.'.$photo3->guessExtension();
+                $photo3->move(
+                    $this->container->getParameter('product_photo_directory'),
+                    $photo3Name
+                );
+                $product->setPhoto3($photo1Name);
+            }
+
+            if($product->getphoto4()){
+                $photo4 = $product->getPhoto4();
+                $photo4Name = md5(uniqid()).'.'.$photo4->guessExtension();
+                $photo4->move(
+                    $this->container->getParameter('product_photo_directory'),
+                    $photo4Name
+                );
+                $product->setPhoto4($photo1Name);
+            }
+
+            if($product->getphoto5()){
+                $photo5 = $product->getPhoto5();
+                $photo5Name = md5(uniqid()).'.'.$photo5->guessExtension();
+                $photo5->move(
+                    $this->container->getParameter('product_photo_directory'),
+                    $photo5Name
+                );
+                $product->setPhoto5($photo1Name);
+            }
+
+
+
             // On l'enregistre notre objet $advert dans la base de données
 
             $em = $this->getDoctrine()->getManager();
@@ -125,6 +190,19 @@ class ProductController extends Controller
             'form' => $form->createView(),
             ));
         }
+
+
+
+
+        //**********************************   Fin traitement Formulaire ajout produit ***************************************
+
+
+        //**********************************   Affichage des tous les produits ***********************************************
+
+        
+
+
+
 
         return $this->render('AdminBundle:Admin:product.html.twig', array(
         'form' => $form->createView(),

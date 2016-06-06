@@ -271,29 +271,6 @@ class Product
     }
 
     /**
-     * Set photos
-     *
-     * @param string $photos
-     * @return Product
-     */
-    public function setPhotos($photos)
-    {
-        $this->photos = $photos;
-
-        return $this;
-    }
-
-    /**
-     * Get photos
-     *
-     * @return string 
-     */
-    public function getPhotos()
-    {
-        return $this->photos;
-    }
-
-    /**
      * Set weight
      *
      * @param integer $weight
@@ -429,29 +406,6 @@ class Product
     public function getMainDescription()
     {
         return $this->mainDescription;
-    }
-
-    /**
-     * Set additionalDescription
-     *
-     * @param string $additionalDescription
-     * @return Product
-     */
-    public function setAdditionalDescription($additionalDescription)
-    {
-        $this->additionalDescription = $additionalDescription;
-
-        return $this;
-    }
-
-    /**
-     * Get additionalDescription
-     *
-     * @return string 
-     */
-    public function getAdditionalDescription()
-    {
-        return $this->additionalDescription;
     }
 
     /**

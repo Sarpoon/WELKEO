@@ -51,6 +51,13 @@ class Product
     /**
      * @var int
      *
+     * @ORM\Column(name="shop_id", type="integer")
+     */
+    private $shopId;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="status", type="integer", nullable=true)
      */
     private $status;
@@ -58,9 +65,37 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="photos", type="string", length=255, nullable=true)
+     * @ORM\Column(name="photo1", type="string", length=255, nullable=true)
      */
-    private $photos;
+    private $photo1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo2", type="string", length=255, nullable=true)
+     */
+    private $photo2;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo3", type="string", length=255, nullable=true)
+     */
+    private $photo3;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo4", type="string", length=255, nullable=true)
+     */
+    private $photo4; 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo5", type="string", length=255, nullable=true)
+     */
+    private $photo5;
 
     /**
      * @var int
@@ -107,9 +142,23 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="additional_description", type="text")
+     * @ORM\Column(name="additional_description1", type="text")
      */
-    private $additionalDescription;
+    private $additionalDescription1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_description2", type="text")
+     */
+    private $additionalDescription2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_description3", type="text")
+     */
+    private $additionalDescription3;
 
     /**
      * @var string

@@ -20,3 +20,20 @@ Utiliser Sessions !!
 		$session->set('date', new \DateTime());
 
 		$date = $session->get('date');
+
+Query Builder !!
+	
+	$repository = $this->getDoctrine()
+	->getRepository('AppBundle:Product');
+	// createQueryBuilder automatically selects FROM AppBundle:Product
+	// and aliases it to "p"
+
+	$query = $repository->createQueryBuilder('p')
+		->where('p.price > :price')
+		->setParameter('price', '19.99')
+		->orderBy('p.price', 'ASC')
+		->getQuery();
+	
+	$products = $query->getResult();
+	// to get just one result:
+	// $product = $query->setMaxResults(1)->getOneOrNullResult();	

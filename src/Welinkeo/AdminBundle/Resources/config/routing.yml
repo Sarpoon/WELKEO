@@ -10,7 +10,7 @@ Admin_product:
 
 Admin_product_store:
     path:     /produits/ajouter
-    defaults: { _controller: AdminBundle:Product:ajouter }
+    defaults: { _controller: AdminBundle:Product:store }
 
 Admin_product_edit:
     path:     /produits/{id}/modifier

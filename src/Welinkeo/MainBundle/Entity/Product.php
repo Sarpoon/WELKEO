@@ -36,7 +36,7 @@ class Product
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="product")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $categoryId;
@@ -142,21 +142,21 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="additional_description1", type="text")
+     * @ORM\Column(name="additional_description1", type="text", nullable=true)
      */
     private $additionalDescription1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="additional_description2", type="text")
+     * @ORM\Column(name="additional_description2", type="text", nullable=true)
      */
     private $additionalDescription2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="additional_description3", type="text")
+     * @ORM\Column(name="additional_description3", type="text", nullable=true)
      */
     private $additionalDescription3;
 
@@ -498,5 +498,212 @@ class Product
     public function getCategoryId()
     {
         return $this->categoryId;
+    }
+
+    /**
+     * Set shopId
+     *
+     * @param integer $shopId
+     * @return Product
+     */
+    public function setShopId($shopId)
+    {
+        $this->shopId = $shopId;
+
+        return $this;
+    }
+
+    /**
+     * Get shopId
+     *
+     * @return integer 
+     */
+    public function getShopId()
+    {
+        return $this->shopId;
+    }
+
+    /**
+     * Set photo1
+     *
+     * @param string $photo1
+     * @return Product
+     */
+    public function setPhoto1($photo1)
+    {
+        $this->photo1 = $photo1;
+
+        return $this;
+    }
+
+    /**
+     * Get photo1
+     *
+     * @return string 
+     */
+    public function getPhoto1()
+    {
+        return $this->photo1;
+    }
+
+    /**
+     * Set photo2
+     *
+     * @param string $photo2
+     * @return Product
+     */
+    public function setPhoto2($photo2)
+    {
+        $this->photo2 = $photo2;
+
+        return $this;
+    }
+
+    /**
+     * Get photo2
+     *
+     * @return string 
+     */
+    public function getPhoto2()
+    {
+        return $this->photo2;
+    }
+
+    /**
+     * Set photo3
+     *
+     * @param string $photo3
+     * @return Product
+     */
+    public function setPhoto3($photo3)
+    {
+        $this->photo3 = $photo3;
+
+        return $this;
+    }
+
+    /**
+     * Get photo3
+     *
+     * @return string 
+     */
+    public function getPhoto3()
+    {
+        return $this->photo3;
+    }
+
+    /**
+     * Set photo4
+     *
+     * @param string $photo4
+     * @return Product
+     */
+    public function setPhoto4($photo4)
+    {
+        $this->photo4 = $photo4;
+
+        return $this;
+    }
+
+    /**
+     * Get photo4
+     *
+     * @return string 
+     */
+    public function getPhoto4()
+    {
+        return $this->photo4;
+    }
+
+    /**
+     * Set photo5
+     *
+     * @param string $photo5
+     * @return Product
+     */
+    public function setPhoto5($photo5)
+    {
+        $this->photo5 = $photo5;
+
+        return $this;
+    }
+
+    /**
+     * Get photo5
+     *
+     * @return string 
+     */
+    public function getPhoto5()
+    {
+        return $this->photo5;
+    }
+
+    /**
+     * Set additionalDescription1
+     *
+     * @param string $additionalDescription1
+     * @return Product
+     */
+    public function setAdditionalDescription1($additionalDescription1)
+    {
+        $this->additionalDescription1 = $additionalDescription1;
+
+        return $this;
+    }
+
+    /**
+     * Get additionalDescription1
+     *
+     * @return string 
+     */
+    public function getAdditionalDescription1()
+    {
+        return $this->additionalDescription1;
+    }
+
+    /**
+     * Set additionalDescription2
+     *
+     * @param string $additionalDescription2
+     * @return Product
+     */
+    public function setAdditionalDescription2($additionalDescription2)
+    {
+        $this->additionalDescription2 = $additionalDescription2;
+
+        return $this;
+    }
+
+    /**
+     * Get additionalDescription2
+     *
+     * @return string 
+     */
+    public function getAdditionalDescription2()
+    {
+        return $this->additionalDescription2;
+    }
+
+    /**
+     * Set additionalDescription3
+     *
+     * @param string $additionalDescription3
+     * @return Product
+     */
+    public function setAdditionalDescription3($additionalDescription3)
+    {
+        $this->additionalDescription3 = $additionalDescription3;
+
+        return $this;
+    }
+
+    /**
+     * Get additionalDescription3
+     *
+     * @return string 
+     */
+    public function getAdditionalDescription3()
+    {
+        return $this->additionalDescription3;
     }
 }

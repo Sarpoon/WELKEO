@@ -35,6 +35,11 @@ class Category
      */
     private $parentId;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    private $products;
+
 
     /**
      * Get id
@@ -90,5 +95,45 @@ class Category
     public function getParentId()
     {
         return $this->parentId;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add products
+     *
+     * @param \Welinkeo\MainBundle\Entity\Product $products
+     * @return Category
+     */
+    public function addProduct(\Welinkeo\MainBundle\Entity\Product $products)
+    {
+        $this->products[] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \Welinkeo\MainBundle\Entity\Product $products
+     */
+    public function removeProduct(\Welinkeo\MainBundle\Entity\Product $products)
+    {
+        $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }

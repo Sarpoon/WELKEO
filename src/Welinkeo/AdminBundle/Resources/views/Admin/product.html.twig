@@ -22,14 +22,8 @@
         </div>
         <div class="panel-body">
 
-          {% for k, v in app.session.flashbag.all() %}
-            <span class="{{ k }}">{{ v }}</span>
-          {% endfor %}
+          {{ form(form)}}
 
-          <form method='POST'>
-            <input type='text' name='titre'/>
-            <input type='submit'/>
-          </form>
         </div>
       </div>
 

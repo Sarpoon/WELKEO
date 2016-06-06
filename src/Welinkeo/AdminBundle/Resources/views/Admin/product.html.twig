@@ -37,6 +37,53 @@
         </div>
         <div class="panel-body">
           
+
+          <table class="table table-bordered table-striped table-condensed" id="myTable">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Catégories</th>
+                <th>Statut</th>
+                <th>Poids</th>
+                <th>Promotion</th>
+                <th>Accroche</th>
+                <th>Description</th>
+                <th>Commentaire</th>
+                <th>Photos</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            
+              {% for product in products %}
+                  
+                <tr>
+                  <td>{{ product.id }}</td>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.price }}</td>
+                  <td></td>
+                  <td>{{ product.status }}</td>
+                  <td>{{ product.weight }}</td>
+                  <td>{{ product.isPromoted }}{{ product.promotion }}</td>
+                  <td>{{ product.teaser }}</td>
+                  <td>{{ product.mainDescription }}<br>{{ product.additionalDescription1 }}<br>{{ product.additionalDescription2 }}<br>{{ product.additionalDescription3 }}</td>
+                  <td>{{ product.comment }}</td>
+                  <td>{{ product.photo1 }}<br>{{ product.photo2 }}<br>{{ product.photo3 }}<br>{{ product.photo4 }}<br>{{ product.photo5 }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+
+          <!--
+          {% for product in products %}
+          {{ product.name }}
+          {% endfor %}
+          -->
+
+
         </div>
       </div>
       

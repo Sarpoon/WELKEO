@@ -199,13 +199,28 @@ class ProductController extends Controller
 
         //**********************************   Affichage des tous les produits ***********************************************
 
-        
+
+        $repositoryProducts = $this->getDoctrine()
+            ->getRepository('MainBundle:Product');
+
+        /*
+        $query = $repository->createQueryBuilder('p')
+            ->where('p.price > :price')
+            ->setParameter('price', '19.99')
+            ->orderBy('p.price', 'ASC')
+            ->getQuery();
+        */
+
+
+        // find *all* products
+        $productsquery = $repositoryProducts->findAll();
 
 
 
 
         return $this->render('AdminBundle:Admin:product.html.twig', array(
         'form' => $form->createView(),
+        'products' => $productsquery,
         ));                              
 
     	

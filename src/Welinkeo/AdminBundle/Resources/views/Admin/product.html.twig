@@ -37,58 +37,91 @@
         </div>
         <div class="panel-body">
           
+            <!--
+            <form name="search" id="serach" action="" method="get">
+            -->
+                <table class="table table-bordered table-striped table-condensed" id="myTable">
+                    <thead>
+                        
+                        <!--
+                        <tr class="tr_search">
+                            
+                            <td class="td-no-border">
+                                    <input value="" name="user" type="text" class="form-control" placeholder="Nom">
+                            </td>
+                            <td class="td-no-border">	
+                                    <input type="submit" value="Chercher" class="btn-large btn-primary btn">
+                            </td>
+                        </tr> 
+                        
+                        -->
+                      
+                        <tr>
+                            <th>id</th>
+                            <th>Nom</th>
+                            <th>Prix</th>
+                            <th>Catégories</th>
+                            <th>Statut</th>
+                            <th>Poids</th>
+                            <th>Promotion</th>
+                            <th>Accroche</th>
+                            <th>Description</th>
+                            <th>Commentaire</th>
+                            <th>Photos</th>
+                        </tr>
+                  </thead>
 
-          <table class="table table-bordered table-striped table-condensed" id="myTable">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Nom</th>
-                <th>Prix</th>
-                <th>Catégories</th>
-                <th>Statut</th>
-                <th>Poids</th>
-                <th>Promotion</th>
-                <th>Accroche</th>
-                <th>Description</th>
-                <th>Commentaire</th>
-                <th>Photos</th>
-              </tr>
-            </thead>
+                  <tbody>
 
-            <tbody>
-            
-              {% for product in products %}
-                  
-                <tr>
-                  <td>{{ product.id }}</td>
-                  <td>{{ product.name }}</td>
-                  <td>{{ product.price }} €</td>
-                  <td>{{ product.categoryId.getName()}}</td>
-                  <td>
-                      {% if product.status ==0 %}
-                          En stock
-                      {% elseif product.status == 1 %}
-                          Derniers éléments disponibles
-                      {% elseif product.status == 2%}
-                          Epuisé
-                      {% endif%}</td>
-                  <td>{{ product.weight }} g</td>
-                  <td>
-                    {% if product.isPromoted == 1 %}
-                        En promotion<br><br>
-                        {{ product.promotion }} % de réduction
-                    {% else %}
-                        Pas de promotion
-                    {% endif %}</td>
-                  <td>{{ product.teaser }}</td>
-                  <td>{{ product.mainDescription }}<br>{{ product.additionalDescription1 }}<br>{{ product.additionalDescription2 }}<br>{{ product.additionalDescription3 }}</td>
-                  <td>{{ product.comment }}</td>
-                  <td>{{ product.photo1 }}<br>{{ product.photo2 }}<br>{{ product.photo3 }}<br>{{ product.photo4 }}<br>{{ product.photo5 }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+                    {% for product in products %}
 
+                      <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }} €</td>
+                        <td>{{ product.categoryId.getName()}}</td>
+                        <td>
+                            {% if product.status ==0 %}
+                                En stock
+                            {% elseif product.status == 1 %}
+                                Derniers éléments disponibles
+                            {% elseif product.status == 2%}
+                                Epuisé
+                            {% endif%}</td>
+                        <td>{{ product.weight }} g</td>
+                        <td>
+                          {% if product.isPromoted == 1 %}
+                              En promotion<br><br>
+                              {{ product.promotion }} % de réduction
+                          {% else %}
+                              Pas de promotion
+                          {% endif %}</td>
+                        <td>{{ product.teaser }}</td>
+                        <td>{{ product.mainDescription }}<br>{{ product.additionalDescription1 }}<br>{{ product.additionalDescription2 }}<br>{{ product.additionalDescription3 }}</td>
+                        <td>{{ product.comment }}</td>
+                        <td>
+                            {% if product.photo1 %}
+                                <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo1)}}" style="width:30%;">
+                            {% endif %}<br>
+                            {% if product.photo2 %}
+                                <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo2)}}" style="width:30%;">
+                            {% endif %}<br>
+                            {% if product.photo3 %}
+                                <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo3)}}" style="width:30%;">
+                            {% endif %}<br>
+                            {% if product.photo4 %}
+                                <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo4)}}" style="width:30%;">
+                            {% endif %}<br>
+                            {% if product.photo5 %}
+                                <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo5)}}" style="width:30%;">
+                            {% endif %}
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            <!--
+            </form>
+            -->
 
           <!--
           {% for product in products %}

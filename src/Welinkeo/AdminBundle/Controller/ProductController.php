@@ -138,7 +138,7 @@ class ProductController extends Controller
                     $this->container->getParameter('product_photo_directory'),
                     $photo2Name
                 );
-                $product->setPhoto2($photo1Name);
+                $product->setPhoto2($photo2Name);
             }
 
             if($product->getphoto3()){
@@ -148,7 +148,7 @@ class ProductController extends Controller
                     $this->container->getParameter('product_photo_directory'),
                     $photo3Name
                 );
-                $product->setPhoto3($photo1Name);
+                $product->setPhoto3($photo3Name);
             }
 
             if($product->getphoto4()){
@@ -158,7 +158,7 @@ class ProductController extends Controller
                     $this->container->getParameter('product_photo_directory'),
                     $photo4Name
                 );
-                $product->setPhoto4($photo1Name);
+                $product->setPhoto4($photo4Name);
             }
 
             if($product->getphoto5()){
@@ -168,7 +168,7 @@ class ProductController extends Controller
                     $this->container->getParameter('product_photo_directory'),
                     $photo5Name
                 );
-                $product->setPhoto5($photo1Name);
+                $product->setPhoto5($photo5Name);
             }
 
 

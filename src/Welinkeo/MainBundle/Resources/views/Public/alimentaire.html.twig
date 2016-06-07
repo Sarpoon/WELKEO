@@ -16,28 +16,14 @@
       </div>
     </div>  
 
-
+      
+      
     <div class="col-md-7 articles">
-      <div class="row articledetail">
-        <div class="col-sm-3">
-          <br><img src="{{ asset('img/imageEmpty.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-sm-8">
-              <h1>Article 1</h1>
-              <p> Réf : 0878909</p>
-              <p>Descrition</p>
-            </div>
-            <div class="col-sm-4">
-              <h1>72 €</h1> 
-              <p> prix TTC</p>
-              <button>Commander</button>
-            </div>
-          </div>  
-        </div>
-      </div>
 
+        
+    {% for product in products%}
+        
+        
       <div class="row articledetail">
         <div class="col-sm-3">
           <br><img src="{{ asset('img/imageEmpty.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
@@ -45,78 +31,21 @@
         <div class="col-sm-9">
           <div class="row">
             <div class="col-sm-8">
-              <h1>Article 2</h1>
-              <p> Réf : 0985674</p>
-              <p>Descrition</p>
+              <h1>{{ product.name }}</h1>
+              <p>Référence : {{ product.id }}</p>
+              <p>{{ product.teaser}}</p>
             </div>
             <div class="col-sm-4">
-              <h1>43 €</h1> 
+              <h1>{{ product.price }} €</h1> 
               <p> prix TTC</p>
-              <button>Commander</button>
+              <a href=""><button> Commander</button></a>
             </div>
           </div>  
         </div>
       </div>
-
-      <div class="row articledetail">
-        <div class="col-sm-3">
-          <br><img src="{{ asset('img/imageEmpty.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-sm-8">
-              <h1>Article 3</h1>
-              <p> Réf : 6523409</p>
-              <p>Descrition</p>
-            </div>
-            <div class="col-sm-4">
-              <h1>09 €</h1> 
-              <p> prix TTC</p>
-              <button>Commander</button>
-            </div>
-          </div>  
-        </div>
-      </div>
-
-      <div class="row articledetail">
-        <div class="col-sm-3">
-          <br><img src="{{ asset('img/imageEmpty.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-sm-8">
-              <h1>Article 4</h1>
-              <p> Réf : 0878909</p>
-              <p>Descrition</p>
-            </div>
-            <div class="col-sm-4">
-              <h1>10 €</h1> 
-              <p> prix TTC</p>
-              <button>Commander</button>
-            </div>
-          </div>  
-        </div>
-      </div>
-
-      <div class="row articledetail">
-        <div class="col-sm-3">
-          <br><img src="{{ asset('img/imageEmpty.jpg')}}" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-sm-8">
-              <h1>Article 5</h1>
-              <p> Réf : 0878909</p>
-              <p>Descrition</p>
-            </div>
-            <div class="col-sm-4">
-              <h1>23 €</h1> 
-              <p> prix TTC</p>
-              <button>Commander</button>
-            </div>
-          </div>  
-        </div>
-      </div>
+        
+    {% endfor %}
+    
 
     </div>
 

@@ -217,7 +217,6 @@ class ProductController extends Controller
 
 
 
-
         return $this->render('AdminBundle:Admin:product.html.twig', array(
         'form' => $form->createView(),
         'products' => $productsquery,

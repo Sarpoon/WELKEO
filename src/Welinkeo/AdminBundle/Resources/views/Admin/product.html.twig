@@ -62,11 +62,24 @@
                 <tr>
                   <td>{{ product.id }}</td>
                   <td>{{ product.name }}</td>
-                  <td>{{ product.price }}</td>
-                  <td></td>
-                  <td>{{ product.status }}</td>
-                  <td>{{ product.weight }}</td>
-                  <td>{{ product.isPromoted }}{{ product.promotion }}</td>
+                  <td>{{ product.price }} €</td>
+                  <td>{{ product.categoryId.getName()}}</td>
+                  <td>
+                      {% if product.status ==0 %}
+                          En stock
+                      {% elseif product.status == 1 %}
+                          Derniers éléments disponibles
+                      {% elseif product.status == 2%}
+                          Epuisé
+                      {% endif%}</td>
+                  <td>{{ product.weight }} g</td>
+                  <td>
+                    {% if product.isPromoted == 1 %}
+                        En promotion<br><br>
+                        {{ product.promotion }} % de réduction
+                    {% else %}
+                        Pas de promotion
+                    {% endif %}</td>
                   <td>{{ product.teaser }}</td>
                   <td>{{ product.mainDescription }}<br>{{ product.additionalDescription1 }}<br>{{ product.additionalDescription2 }}<br>{{ product.additionalDescription3 }}</td>
                   <td>{{ product.comment }}</td>

@@ -31,15 +31,12 @@ class ProductController extends Controller
         $product = new Product();
 
         $form = $this->createFormBuilder($product)
-        ->add('name', TextType::class)
-        ->add('price', MoneyType::class)
+        ->add('name', TextType::class, array('label' => "Nom",))
+        ->add('price', MoneyType::class, array('label' => "Prix",))
         ->add('categoryId', EntityType::class, array(
             // query choices from this entity
             'class' => 'MainBundle:Category',
 
-            'property' => 'name',
-            'expanded' => false,
-            'multiple' => false,
             'label' => "Catégorie",
 
             'query_builder' => function (EntityRepository $er) {
@@ -57,6 +54,7 @@ class ProductController extends Controller
             // 'expanded' => true,
         ))
         ->add('countryId', ChoiceType::class, array(
+                                            'label' => 'Pays',
                                             'choices'  => array(
                                                         1 => 'Congo',
                                                         2 => 'France',
@@ -65,6 +63,7 @@ class ProductController extends Controller
             )
 
         ->add('shopId', ChoiceType::class, array(
+                                            'label' => 'Boutique',
                                             'choices'  => array(
                                                         1 => 'kinshasa',
                                                         2 => 'Paris',
@@ -73,6 +72,7 @@ class ProductController extends Controller
             )
         
         ->add('status', ChoiceType::class, array(
+                                            'label' => 'Etat',
                                             'choices'  => array(
                                                         0 => 'En stock',
                                                         1 => 'Derniers éléments disponnibles',
@@ -89,18 +89,18 @@ class ProductController extends Controller
         ->add('photo4', FileType::class, array('required' => false))
         ->add('photo5', FileType::class, array('required' => false))
 
-        ->add('isPromoted', CheckboxType::class, array('required' => false))
-        ->add('promotion', IntegerType::class, array('required' => false))
+        ->add('isPromoted', CheckboxType::class, array('required' => false, 'label' => "Activer promotion"))
+        ->add('promotion', IntegerType::class, array('required' => false, 'label' => "Valeur de la promotion"))
 
-        ->add('teaser', TextType::class)
-        ->add('mainDescription', TextType::class)
-        ->add('additionalDescription1', TextType::class, array('required' => false))
-        ->add('additionalDescription2', TextType::class, array('required' => false))
-        ->add('additionalDescription3', TextType::class, array('required' => false))
+        ->add('teaser', TextType::class, array('label' => "Accroche"))
+        ->add('mainDescription', TextType::class, array('label' => "Description principale"))
+        ->add('additionalDescription1', TextType::class, array('required' => false, 'label' => "Description supplémentaire 1"))
+        ->add('additionalDescription2', TextType::class, array('required' => false, 'label' => "Description supplémentaire 2"))
+        ->add('additionalDescription3', TextType::class, array('required' => false, 'label' => "Description supplémentaire 3"))
 
-        ->add('comment', TextType::class, array('required' => false))
+        ->add('comment', TextType::class, array('required' => false, 'label' => "Commentaire"))
 
-        ->add('save', SubmitType::class, array('label' => 'Create Product'))
+        ->add('save', SubmitType::class, array('label' => 'Sauvegarder le produit'))
         ->getForm();
 
 

@@ -37,9 +37,9 @@
         </div>
         <div class="panel-body">
           
-            <!--
-            <form name="search" id="serach" action="" method="get">
-            -->
+
+            <form name="search" id="serach" action="{{ path("Admin_product")}}" method="get">
+            
                 <table class="table table-bordered table-striped table-condensed" id="myTable">
                     <thead>
                         
@@ -119,15 +119,8 @@
                     {% endfor %}
                   </tbody>
                 </table>
-            <!--
+            
             </form>
-            -->
-
-          <!--
-          {% for product in products %}
-          {{ product.name }}
-          {% endfor %}
-          -->
 
 
         </div>

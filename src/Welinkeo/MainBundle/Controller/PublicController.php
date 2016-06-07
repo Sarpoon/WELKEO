@@ -42,5 +42,13 @@ class PublicController extends Controller
             'products' => $productsquery,
         ));
     }
+
+    public function cartStoreAction($id,$volume)
+    {
+        var_dump($id);
+        var_dump($volume);
+
+        return $this->redirectToRoute('Main_alimentaire');
+    }
 }
 ?>

@@ -1,6 +1,8 @@
 Récuperer data url !!
 
 	URL : 
+        {{ absolute_url(asset('images/logo.png')) }}
+        {{ url('homepage') }} ??
 		www.welinkeo.com/article?token=234567235273657
 	Controller : 
 		'token' => $this->getRequest()->query->get('token');

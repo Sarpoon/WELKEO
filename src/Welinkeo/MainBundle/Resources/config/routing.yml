@@ -5,3 +5,11 @@ Main_home:
 Main_alimentaire:
     pattern:     /alimentaire
     defaults: { _controller: MainBundle:Public:alimentaireIndex }
+
+Main_product_cart_store:
+    pattern:     /produit/panier/ajouter/{id}/{volume}
+    defaults: { _controller: MainBundle:Public:cartStore }
+    methods: [POST|GET]
+    requirements:
+      id: \d+
+      volume: \d+

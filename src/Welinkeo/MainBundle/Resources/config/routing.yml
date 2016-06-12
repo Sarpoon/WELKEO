@@ -5,11 +5,33 @@ Main_home:
 Main_alimentaire:
     pattern:     /alimentaire
     defaults: { _controller: MainBundle:Public:alimentaireIndex }
+    
+    
+Main_product:
+    pattern:     /produit/{id}
+    defaults: { _controller: MainBundle:Public:productShow }
+    methods: [GET]
+    requirements:
+        id: \d+
+        
 
+Main_cart:
+    pattern:     /panier
+    defaults: { _controller: MainBundle:Cart:cartShow}
+    
+    
 Main_product_cart_store:
-    pattern:     /produit/panier/ajouter/{id}/{volume}
-    defaults: { _controller: MainBundle:Public:cartStore }
+    pattern:     /produit/panier/ajouter/{id}/{quantity}
+    defaults: { _controller: MainBundle:Cart:cartStore }
     methods: [POST|GET]
     requirements:
       id: \d+
-      volume: \d+
+      quantity: \d+
+
+Main_product_cart_edit:
+    pattern:    /produit/panier/ajouter/{id}/{quantity}
+    defaults: { _controller: MainBundle:Cart:cartEdit }
+    methods: [Post|GET]
+    requirements:
+        id: \d+
+        quantity: \d+

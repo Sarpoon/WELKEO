@@ -1,0 +1,220 @@
+{% extends "::base.html.twig" %}
+
+{% block title %} {{ product.name }} | {{ parent()}} {% endblock%}
+
+{% block stylesheets %}
+{{ parent()}}
+<link href="{{ asset('css/cart.css') }}" rel="stylesheet">
+
+{% endblock%}
+{% block body%}
+    
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading"><b>{{ product.name }}</b></div>
+                <div class="panel-body">
+                    <div class="container">
+
+                        <!-- Affichage des images si elles existent !!-->
+                        {% if product.photo1 or product.photo2 or product.photo3 or product.photo4 or product.photo5 %}
+                        <div class="jumbotron">
+                            <div class="container">
+                                <br>
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                  <!-- Indicators -->
+                                  <ol class="carousel-indicators">
+                                    {% if product.photo1 %}
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    {% endif %}
+
+                                    {% if product.photo2 %}
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    {% endif %}
+
+                                    {% if product.photo3 %}
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    {% endif %}
+
+                                    {% if product.photo4 %}
+                                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                                    {% endif %}
+
+                                    {% if product.photo5 %}
+                                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                                    {% endif %}
+
+
+
+                                  </ol>
+
+                                  <!-- Wrapper for slides -->
+                                  <div class="carousel-inner" role="listbox">
+
+                                    {% if product.photo1 %}
+                                        <div class="item active">
+                                            <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo1)}}" class="img-responsive" style="width:100%" alt="Image">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if product.photo2 %}
+                                        <div class="item">
+                                            <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo2)}}" class="img-responsive" style="width:100%" alt="Image">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if product.photo3 %}
+                                        <div class="item">
+                                            <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo3)}}" class="img-responsive" style="width:100%" alt="Image">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if product.photo4 %}
+                                        <div class="item">
+                                            <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo4)}}" class="img-responsive" style="width:100%" alt="Image">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if product.photo5 %}
+                                        <div class="item">
+                                            <img class="img_profile img-rounded" src="{{ asset('img/productsPhotos/'~product.photo5)}}" class="img-responsive" style="width:100%" alt="Image">
+                                        </div>
+                                    {% endif %}
+
+
+                                  </div>
+
+                                  <!-- Left and right controls -->
+                                  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                  </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <!-- Rien à afficher si il n'y a pas d'images -->
+                        {% endif %}
+                        <!-- Fin affichage des images -->
+                        <br> <br>
+                        <big><b>{{ product.name }}</b></big>
+                        <br>
+                        Prix : {{ product.price }}€
+                        <br><br>
+                        Catégorie : {{ product.categoryId.getName()}}
+                        <br>    
+                        Statut : 
+                            {% if product.status ==0 %}
+                                En stock
+                            {% elseif product.status == 1 %}
+                                Derniers éléments disponibles
+                            {% elseif product.status == 2%}
+                                Epuisé
+                            {% endif%}
+                        <br>    
+                        Poids : {{ product.weight }} g
+                        <br><br>
+                        Promotion : 
+                            {% if product.isPromoted == 1 %}
+                                En promotion<br>
+                                {{ product.promotion }} % de réduction
+                            {% else %}
+                                Pas de promotion
+                            {% endif %}
+                        <br><br>
+                        accroche : {{ product.teaser }}
+                        <br>
+                        Description : {{ product.mainDescription }}<br>{{ product.additionalDescription1 }}<br>{{ product.additionalDescription2 }}<br>{{ product.additionalDescription3 }}
+                        <br>
+                        Commentaire : {{ product.comment }}
+                        <br>
+
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cartStoreModal   ">Ajouter au panier</button>
+
+                        <!-- Modal Panier -->
+                            <div class="modal fade" id="cartStoreModal" role="dialog" aria-hidden="false" style="">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Ajouter un article au panier</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>Ajouter x {{ product.name }} au panier</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div> <!-- Fin modal fade -->
+
+
+                    </div> <!--Fin container article --> 
+
+
+                </div> <!-- Fin panel body-->
+            </div> <!-- Fin panel-->
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-3 panier">
+                <p class="lead">Panier</p>
+                <table class="table table-hover paniertableau">
+                  <thead>
+                    <tr>
+                      <th>Produit</th>
+                      <th>Quantité</th>
+                      <th>Prix</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Article 1</td>
+                      <td>1</td>
+                      <td>12 €</td>
+                      <td>12 €</td>
+                    </tr>
+                    <tr>
+                      <td>Article 6</td>
+                      <td>1</td>
+                      <td>32 €</td>
+                      <td>12 €</td>
+                    </tr>
+                    <tr>
+                      <td>Article 8</td>
+                      <td>3</td>
+                      <td>8 €</td>
+                      <td>12 €</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table table-hover paniertableaufinal">
+                  <thead>
+                    <tr>
+                      <th><b>Total</b> </th>
+                      <th><b> </b> </th>
+                      <th><b> </b> </th>
+                      <th><b> </b> </th>
+                      <th><b> </b> </th>
+                      <th><b> </b> </th>
+                      <th><b>68 €</b> </th>
+                    </tr>
+                  </thead>
+                </table>
+
+                <button> Poursuivre la commande</button>
+            </div>
+        </div>
+    </div>
+    
+                        
+{% endblock %}

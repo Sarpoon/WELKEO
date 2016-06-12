@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Doctrine\ORM\EntityRepository;
 
+use Welinkeo\MainBundle\Entity\Product;
+
 class PublicController extends Controller
 {
     public function indexAction()
@@ -42,6 +44,28 @@ class PublicController extends Controller
             'products' => $productsquery,
         ));
     }
+    
+    
+    
+    //Affichage du produit selon id
+    public function productShowAction($id)
+    {
+        
+        $repositoryProduct = $this->getDoctrine()
+            ->getRepository('MainBundle:Product');
+        
+        
+        // find product by id
+        $product = $repositoryProduct->find($id);
+        
+        
+    	return $this->render('MainBundle:Public:product.html.twig', array(
+            'product' => $product,
+        ));
+    }
+    
+    
+    
 
     public function cartStoreAction($id,$volume)
     {
